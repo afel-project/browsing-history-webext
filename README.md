@@ -1,2 +1,2 @@
-# extractors
-Umbrella repository for data capture components
+#Browser History Event Tracker
+Extracts Activities from browsing history
