@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <title>AFEL Login</title>
+    <style>
+      * {font-family: Helvetica, Verdana, "Sans Serif"; font-size: 16px}
+      #main {width: 70%; margin-left: 15%; margin-top: 5%}
+      #form {margin-left: auto; margin-right: auto; margin-top: 20px; margin-bottom: 30px; width: 400px; background: #126567; border-radius: 15px; padding-top: 15px; padding-bottom: 10px;}
+      .formfield {width: 80%; margin-left: 10%; margin-top: 10px; margin-bottom: 10px;}
+      #username {width: 100%;}
+      #password {width: 100%; margin-bottom: 10px;}
+      #gobutton {width: 40%; text-align: center; background: #d34836; padding-left: 10px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px; font-weight: bold; border-radius: 5px; color: white; text-decoration: none;}
+      .message{margin-bottom: 30px; width: 80%; margin-left: 10%; padding: 15px 20px 15px 20px; background: #eee; border-radius: 5px}      
+      #error{visibility: hidden;
+      margin-bottom: 30px; width: 80%; margin-left: 10%; padding: 15px 20px 15px 20px; background: #eee; border-radius: 5px; color: #d34836}      
+      }
+    </style>
+    <script src="login.js"></script>
+    <script src="../commons.js"></script>
+  </head>
+  <body>
+    <div id="main">
+      <div class="message">
+	Please login onto the AFEL platform to enable AFEL extension to monitor your learning through
+        your browsing habits. By login in, you accept the <a href="http://data.afel-project.eu/catalogue/index.php/terms-browsing">Terms and Conditions</a> of this 
+        and of the AFEL platform.
+      </div>
+
+      <div class="message">
+	If you do not yet have an account on the AFEL platform, please <a href="http://data.afel-project.eu/catalogue/wp-login.php?action=register" target="_blank">register</a> 
+	first, and come back to this page.
+      </div>
+      
+      <div id="form">
+	<div class="formfield">
+	  <input type="text" name="username" id="username" placeholder="username" />
+	</div>
+	<div class="formfield">
+	  <input type="password" name="password" id="password" placeholder="password" />
+	</div>
+	<div class="formfield">
+	  <div id="gobutton">login</div>
+	</div>
+      </div>
+      
+      <div id="error">
+	There should not be any error yet...
+      </div>
+
+  </body>
+</html>
+
