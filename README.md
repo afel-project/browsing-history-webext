@@ -31,7 +31,7 @@ As soon as the extension is enabled, a new tab should appear in your browser sho
 
 This chrome extension represents a typical form of user-centric data extractor for the AFEL Data Platform. As such, it is worth detailing the workflow through which this interaction happens. This workflow is described in the diagram below.
 
-![AFEL Browsing History Extension workflow](workflow.png "AFEL Browsing History Extension")
+![AFEL Browsing History Extension workflow](doc/workflow.png "AFEL Browsing History Extension")
 
 where the Extractor application here is the extension and the login page is achieved through a local tab.
 
