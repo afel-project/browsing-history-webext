@@ -7,15 +7,16 @@ This add-on has been developed as a WebExtension, the preferred format for brows
 
 ## Requirements
 
-This WebExtension works on one of the following browsers:
+This WebExtension works on any of the following browsers:
 - Google Chrome
-- Firefox 50.0 (___not yet released___)
+- Firefox 50.0 ([to be released Nov 2016](https://wiki.mozilla.org/RapidRelease/Calendar))
 - Opera 33
 
-Microsoft Edge is expected to be the next to support this standard.
+_Microsoft Edge_ is expected to be the next to support this standard.
 
 ## Installation 
 Currently, there is no signed/packaged version of this extension, so you have to install it as an unpackaged extension after setting your browser to accept developer-mode extensions.
+
 1. Download or git clone into a local directory. 
 2. In Chrome, go to settings, and choose extensions on the right hand menu (View -> Show Extensions in Opera, Add-ons in Firefox)
 3. At the top of the page, click on "Developer mode" if not already enabled. 
@@ -56,4 +57,4 @@ Note that these endpoints might also include data obtained from other extractors
 
 
 ## Licence 
-The AFEL Chrome Browsing History Extension us distributed under the [Apache Licence V2](https://www.apache.org/licenses/LICENSE-2.0). Please attribute *[Mathieu d'Aquin](http://mdaquin.net) from [The Open University](http://www.open.ac.uk) through the [AFEL Project](http://afel-project.eu)* when reusing and redistributing this code.
+The AFEL Chrome Browsing History Extension us distributed under the [Apache Licence V2](https://www.apache.org/licenses/LICENSE-2.0). Please attribute *[Mathieu d'Aquin](http://mdaquin.net) and [Alessandro Adamou](http://kmi.open.ac.uk/people/member/alessandro-adamou) from [The Open University](http://www.open.ac.uk) through the [AFEL Project](http://afel-project.eu)* when reusing and redistributing this code.
