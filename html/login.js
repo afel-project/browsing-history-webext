@@ -56,8 +56,15 @@ function getDatasetInfo(username, password){
 	      else if (res.key && res.dataset){
 	        stg.set({"acbh_dataset_id": res.dataset, "acbh_user_key": res.key, "acbh_ecapi": res.ecapi}, 
               function(){
-                console.log("closing login page");
-                chrome.tabs.getSelected(function(tab){chrome.tabs.remove([tab.id]);});
+                console.log(myName+' is attempting to close its own login page.');
+                var tabbs = typeof browser !== 'undefined' ? browser.tabs : chrome.tabs;
+                tabbs.query({active:true,currentWindow:true}).then(function(value){ 
+                	if(value.length>0) {
+                		tabbs.remove(value[0].id).then(function(value){},function(reason){
+                			alert(myName + 'failed to close its authentication window, you should do it manually now.'+'\nReason: '+reason)
+                		});
+                	}
+                });
               }
             );
 	      }

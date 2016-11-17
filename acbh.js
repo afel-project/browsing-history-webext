@@ -6,7 +6,7 @@
  * @author: alexdma, mdaquin
  */
 
-console.log("AFEL browsing history WebExtension is alive.");
+console.log(myName+" is alive.");
 
 //// FOR DEBUG - uncomment here for faking an existing dataset
 // stg.set({"acbh_dataset_id": "test", "acbh_user_key": "test"}, function (){});
@@ -59,7 +59,7 @@ function acbh__getDatasetInfo(relogin=false){
 function acbh__save(details){
     // check if dataset info is available
     stg.get(["acbh_dataset_id", "acbh_user_key"], function (items){
-    	console.log("Should send stuff");
+    	// console.log("Should send stuff");
 		if (items.acbh_dataset_id && items.acbh_user_key){	    
 	    	var rdf = acbh__generateRDF(items, details);
 	    	acbh__sendRDF(items, rdf);
@@ -76,6 +76,6 @@ function acbh__save(details){
  */
 function acbh__sendRDF(dataset, rdf){
     postJsonResource(config.ecapi_url+"dataset/"+dataset.acbh_dataset_id+"?key="+dataset.acbh_user_key, "data="+escape(rdf), function (text){
-	console.log("rdf sent");
+	// console.log("rdf sent");
     });
 }
