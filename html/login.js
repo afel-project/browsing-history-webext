@@ -57,14 +57,21 @@ function getDatasetInfo(username, password){
 	        stg.set({"acbh_dataset_id": res.dataset, "acbh_user_key": res.key, "acbh_ecapi": res.ecapi}, 
               function(){
                 console.log(myName+' is attempting to close its own login page.');
-                var tabbs = typeof browser !== 'undefined' ? browser.tabs : chrome.tabs;
-                tabbs.query({active:true,currentWindow:true}).then(function(value){ 
-                	if(value.length>0) {
-                		tabbs.remove(value[0].id).then(function(value){},function(reason){
-                			alert(myName + 'failed to close its authentication window, you should do it manually now.'+'\nReason: '+reason)
-                		});
-                	}
-                });
+				
+				// Handled differently in Firefox 50.0 and Chrome 54.0
+				var err_msg = myName + 'failed to close its authentication window, you should do it manually now.';
+				if(typeof browser !== 'undefined') {
+					browser.tabs.query({active:true,currentWindow:true}).then(function(tabs){ 
+						if(tabs.length>0)
+                		browser.tabs.remove(tabs[0].id).then(function(){},function(reason){
+                			alert(err_msg+'\nReason: '+reason)
+						})
+					})
+				} else if(typeof chrome !== 'undefined') {
+					chrome.tabs.query({active:true,currentWindow:true},function(tabs){
+						chrome.tabs.remove(tabs[0].id)
+					})
+				}
               }
             );
 	      }

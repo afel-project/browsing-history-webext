@@ -1,9 +1,4 @@
-if( typeof browser === 'undefined' ) {
-  if( typeof chrome !== 'undefined' ) browser = chrome;
-  else console.error("Cannot determine API entry point:"
-  	+ " neither the 'browser' not the 'chrome' namespace seem to be supported!");
-}
-var myName = browser.runtime.getManifest().name;
+var myName = typeof browser !== 'undefined' ? browser.runtime.getManifest().name : chrome.runtime.getManifest().name;
 
 var config = {
    base_ns: "http://data.afel-project.org/acbh/",
