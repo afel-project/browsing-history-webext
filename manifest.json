@@ -9,14 +9,6 @@
     "48" : "img/afel_icon48.png",
     "128": "img/afel_icon128.png"
   },
-
-  "applications": {
-    "gecko": {
-      "id": "acbh@afel-project.eu",
-      "strict_min_version": "45.0",
-      "strict_max_version": "50.*"
-    }
-  },  
   "background": {
     "scripts": [ "commons.js", "acbh.js" ]
   },
