@@ -32,13 +32,14 @@ function go() {
  */
 function getDatasetInfo(username, password) {
     var ecapiconfig = generateConfig();
+    var app_display = app_short.charAt(0).toUpperCase() + app_short.slice(1);
     postJsonResource(config.catalogue_base_url + "newuserdataset",
         "username=" + username +
         "&password=" + password +
-        "&type=AFEL " + app_short + " Browsing Extension&description=Collects data about browsing activities from the " + app_short + " web browser.&ecapiconf=" + encodeURIComponent(ecapiconfig),
-        function(text) {
+        "&type=AFEL " + app_display + " Browsing Extension&description=Collects data about browsing activities from the " + app_short + " web browser.&ecapiconf=" + encodeURIComponent(ecapiconfig),
+        function(status, text) {
             var res = JSON.parse(text);
-            if (res.error) {
+            if (res.error && !(status == 409 && res.key && res.dataset)) {
                 displayError(res.error)
             } else if (res.key && res.dataset) {
                 stg.set({

@@ -75,7 +75,11 @@ function acbh__save(details){
  * Sends the data to the data platform through ECAPI.
  */
 function acbh__sendRDF(dataset, rdf){
-    postJsonResource(config.ecapi_url+"dataset/"+dataset.acbh_dataset_id+"?key="+dataset.acbh_user_key, "data="+escape(rdf), function (text){
-	// console.log("rdf sent");
-    });
+    postJsonResource(
+    	config.ecapi_url + "dataset/" + dataset.acbh_dataset_id + "?key=" + dataset.acbh_user_key , 
+    	"data=" + escape(rdf) , 
+    	function (status, text){
+			// console.log("rdf sent");
+    	}
+    );
 }

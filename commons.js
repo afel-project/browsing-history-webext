@@ -20,7 +20,7 @@ function postJsonResource(url, params, callback){
     var req = new XMLHttpRequest();
     req.onreadystatechange = function(){
 	  if(req.readyState == 4) {
-        callback(req.responseText);
+        callback(req.status, req.responseText);
 	    if(req.status == 404)
           console.error("404 - is the page "+url+" present in the AFEL catalogue?");
       }
