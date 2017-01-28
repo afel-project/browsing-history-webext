@@ -6,7 +6,7 @@
  * @author: alexdma, mdaquin
  */
 
-console.log(myName+" is alive.");
+// console.log(myName+" is alive.");
 
 //// FOR DEBUG - uncomment here for faking an existing dataset
 // stg.set({"acbh_dataset_id": "test", "acbh_user_key": "test"}, function (){});
@@ -32,13 +32,13 @@ chrome.history.onVisited.addListener(function(details){
  */
 function acbh__generateRDF(dataset, historyItem){
     var uri = config.base_ns+historyItem.id;
-    var rdf = "<"+uri+"> a <"+config.base_ns+"onto/WebpageVisit> . \n";
+    var rdf = "<"+uri+"> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <"+config.base_ns+"onto/WebpageVisit> . \n";
     rdf += "<"+uri+"> <"+config.base_ns+"onto/resource> <"+historyItem.url+"> . \n";
     rdf += "<"+historyItem.url+"> <"+config.base_ns+'onto/url> "'+historyItem.url+'" . \n';
-    rdf += "<"+historyItem.url+"> <"+config.base_ns+'onto/title> "'+historyItem.title+'" . \n';
+    if(historyItem.title) rdf += "<"+historyItem.url+"> <"+config.base_ns+'onto/title> "'+historyItem.title+'" . \n';
     rdf += "<"+uri+"> <"+config.base_ns+"onto/visitor> <"+config.base_ns+"user/"+dataset.acbh_user_key+"> . \n";
     rdf += "<"+uri+"> <"+config.base_ns+"onto/usingTool> <"+config.base_ns+"tool/"+app_short+"_browser> . \n";
-    rdf += "<"+uri+"> <"+config.base_ns+"onto/atTime> "+historyItem.lastVisitTime+" . \n";
+    rdf += "<"+uri+"> <"+config.base_ns+"onto/atTime> \"\"\""+historyItem.lastVisitTime+"\"\"\"^^<http://www.w3.org/2001/XMLSchema#decimal> . \n";
     // TODO - way to describe the computer?
     return rdf;
 }

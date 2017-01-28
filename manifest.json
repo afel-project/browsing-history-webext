@@ -2,7 +2,7 @@
   "manifest_version": 2,
   
   "name": "AFEL activity monitor",
-  "version": "0.1",
+  "version": "0.1.1",
   "description": "This extension monitor what you are learning online through your web browser.",
   "icons": { 
     "16" : "img/afel_icon16.png",
