@@ -3,14 +3,15 @@ Contributors: Mathieu d'Aquin (@mdaquin), Alessandro Adamou(@anticitizen79)
 
 The AFEL Browsing History WebExtension is one of the Browsing History Extractors developed in the [AFEL Project](http://afel-project.eu). It is a browser add-on running in the background while you use the browser in the Web, and sends information about your browsing to the [AFEL Data Platform](http://data.afel-project.eu). It will require login onto the AFEL Data Platform, either with an existing account or through registration.
 
-This add-on has been developed as a WebExtension, the preferred format for browser extensions that will become a standard in 2017.
+This add-on has been developed as a WebExtension, the preferred format for browser extensions that will become a standard by 2017.
 
 ## Requirements
 
 This WebExtension works on any of the following browsers:
 - Google Chrome
-- Firefox 50.0 ([to be released Nov 2016](https://wiki.mozilla.org/RapidRelease/Calendar))
-- Opera 33
+- Firefox version 50.0 and above ([released Nov 2016](https://wiki.mozilla.org/RapidRelease/Calendar))
+- Opera version 33 and above
+- Vivaldi
 
 _Microsoft Edge_ is expected to be the next to support this standard.
 
