@@ -1,5 +1,4 @@
 var myName = typeof browser !== 'undefined' ? browser.runtime.getManifest().name : chrome.runtime.getManifest().name;
-
 var config = {
    base_ns: "http://data.afel-project.org/acbh/",
    catalogue_base_url: "http://data.afel-project.eu/catalogue/",
@@ -26,7 +25,7 @@ function postJsonResource(url, params, callback){
       }
     };
     req.open("POST", url, true);
-    req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     req.send(params);
     return true
 }

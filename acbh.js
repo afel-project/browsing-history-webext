@@ -17,7 +17,8 @@ acbh__getDatasetInfo();
 //});
 
 // Counter for number of times we went to a page without having any dataset info
-var count = 0; 
+var misses = 0;
+
 // Update when something is visited
 chrome.history.onVisited.addListener(function(details){
     acbh__save(details);
@@ -59,14 +60,13 @@ function acbh__getDatasetInfo(relogin=false){
 function acbh__save(details){
     // check if dataset info is available
     stg.get(["acbh_dataset_id", "acbh_user_key"], function (items){
-    	// console.log("Should send stuff");
 		if (items.acbh_dataset_id && items.acbh_user_key){	    
 	    	var rdf = acbh__generateRDF(items, details);
 	    	acbh__sendRDF(items, rdf);
+	    	chrome.extension.getBackgroundPage().acbh__count++;
 		} else { // if the dataset info is missing more than 50 times,
 	         // try to redo the registration of the dataset to the AFEL platform
-	    	count ++;
-	    	if(count >= 50){ count = 0; acbh__getDatasetInfo() }
+	    	if(++misses >= 50){ misses = 0; acbh__getDatasetInfo() }
 		}
     });
 }

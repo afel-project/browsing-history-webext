@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <title>AFEL monitor</title>
-    <script src="../commons.js"></script>
-  </head>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>AFEL monitor</title>
+  <script src="../commons.js"></script>
+  <style>
+  #acbh_monitor { font-family:Sans-serif; font-size:0.8rem }
+  </style>
+</head>
+
+<body>
+
+  <div id="acbh_monitor">
+    The AFEL monitor is running.
+    <p><span id="nvisits" style="font-weight:bold">no</span> logged visits for this session</p>
+    <p><a target="_blank" id="acbh_visulink" href="http://data.afel-project.eu/catalogue/index.php/user-dashboard">See online dashboard</a>
+    </p>
+  </div>
+  <script src="popup.js"></script>
   
-  <body>
-    <div id="acbh_monitor">
-      The AFEL monitor is running - see your dashboard on the 
-      <a target="_blank" id="acbh_visulink" href="http://data.afel-project.eu/catalogue/index.php/user-dashboard">AFEL Data platform</a>
-    </div>
-  </body>
+</body>
   
 </html>
 
