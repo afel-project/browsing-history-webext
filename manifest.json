@@ -3,7 +3,7 @@
   
   "name": "AFEL activity monitor",
   "version": "0.1.1",
-  "description": "This extension monitor what you are learning online through your web browser.",
+  "description": "This extension monitors what you are learning online through your Web browser.",
   "icons": { 
     "16" : "img/afel_icon16.png",
     "48" : "img/afel_icon48.png",
