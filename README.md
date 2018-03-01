@@ -16,7 +16,7 @@ This WebExtension works on any of the following browsers:
 _Microsoft Edge_ is expected to be the next to support this standard.
 
 ## Installation 
-Currently, there is no signed/packaged version of this extension, so you have to install it as an unpackaged extension after setting your browser to accept developer-mode extensions.
+A version of this extension is available on extension stores for some of the browsers listed above. To ensure you get the latest, development version, you might want to install it as an unpackaged extension after setting your browser to accept developer-mode extensions.
 
 1. Download or git clone into a local directory. 
 2. In Chrome, go to settings, and choose extensions on the right hand menu (View -> Show Extensions in Opera, Add-ons in Firefox)
@@ -27,7 +27,6 @@ Please make sure to read and accept the [Terms and Conditions](http://data.afel-
 
 ## Use
 As soon as the extension is enabled, a new tab should appear in your browser showing a login page to the AFEL data platform. Please (register)[http://data.afel-project.eu/catalogue/wp-login.php?action=register] if you don't already have an account. Once logged in, the extension will have obtained all the details needed to updload data about browsing activity on the AFEL Data Platform. A small icon will have also appeared on the right hand side of the browser's address bar, showing that the extension is active. Clicking on this icon will give you a link to the [AFEL User Dashboard](http://data.afel-project.eu/catalogue/index.php/user-dashboard/) where you can monitor your own activity from this and other AFEL extractors.
-
 
 ## Workflow
 
@@ -40,22 +39,12 @@ where the Extractor application here is the extension and the login page is achi
 The API to provide dataset ID and user key in the platform is part of the [Data Catalogue](https://github.com/afel-project/datahub-catalogue), through the [Data Catalogue Process Plugin](https://github.com/afel-project/data-catalogue-process-wordpress). The actual use data (in this case, browsing activity data), is transferred to the AFEL Data Platfrom through the [Entity Centric API](https://github.com/afel-project/entity-centric-api).
 
 ## Getting your own data
-In addition to showing activity through the AFEL user dashboard, the AFEL Browsing History Extension will also update three API endpoints from which data can be obtained using the users unique API key. To use them, apply for example:
 
-`curl -u [your-api-key:] http://data.afel-platform.eu/api/entity/day/today`
+A dashboard and mobile application to visualise, explore (and even download) your own data will be available (on the data platform)[http://data.afel-project.eu/catalogue/user-dashboard/].
 
-to get activities for the current day. 
+## Turning off the monitoring
 
-You can also use:
-- http://data.afel-platform.eu/api/entity/day/25-08-206 (for example) for the a specific day
-- http://data.afel-platform.eu/api/entity/month/current for the current month
-- http://data.afel-platform.eu/api/entity/month/08-2016 (for example) for a specific month
-- http://data.afel-platform.eu/api/entity/year/current for the current year
-- http://data.afel-platform.eu/api/entity/year/2016 (for example) for a specific year
-
-
-Note that these endpoints might also include data obtained from other extractors.
-
+We are adding a button to turn off the monitoring done by the extension. While it is not available, you can either instruct your browser to temporarily disable the extension or use the incognito mode when you don't want your activity to be monitored.
 
 ## Licence 
 The AFEL Chrome Browsing History Extension us distributed under the [Apache Licence V2](https://www.apache.org/licenses/LICENSE-2.0). Please attribute *[Mathieu d'Aquin](http://mdaquin.net) and [Alessandro Adamou](http://kmi.open.ac.uk/people/member/alessandro-adamou) from [The Open University](http://www.open.ac.uk) through the [AFEL Project](http://afel-project.eu)* when reusing and redistributing this code.
