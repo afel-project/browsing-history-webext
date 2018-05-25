@@ -26,9 +26,12 @@ chrome.history.onVisited.addListener(function(details){
     acbh__save(details);
 });
 
+
 //================================================================================
 // Functions
 //================================================================================
+
+
 
 /**
  * Checks if dataset exists with info in storage.
@@ -36,11 +39,12 @@ chrome.history.onVisited.addListener(function(details){
  * If it does not, get the user to login with their data 
  * platform credentials, to obtain the info for the new dataset
  */
-function acbh__getDatasetInfo(relogin=false){
+function acbh__getDatasetInfo(){
     stg.get(["acbh_dataset_id", "acbh_user_key"], function (items){
-	if(!items.acbh_dataset_id || !items.acbh_user_key)
+	if( !items.acbh_dataset_id || !items.acbh_user_key)
 	    chrome.tabs.create({url: "html/login.html"}, function(){})
-    });				   
+    });		
+	
 }
 
 function acbh__save(details){
@@ -52,7 +56,10 @@ function acbh__save(details){
 	    	chrome.extension.getBackgroundPage().acbh__count++;
 		} else { // if the dataset info is missing more than 50 times,
 	         // try to redo the registration of the dataset to the AFEL platform
-	    	if(++misses >= 50){ misses = 0; acbh__getDatasetInfo() }
+	    	if(++misses >= 50){ 
+				misses = 0; 
+				acbh__getDatasetInfo() 
+			}
 		}
     });
 }

@@ -41,6 +41,7 @@ function getDatasetInfo(username, password) {
             if (res.error && !(status == 409 && res.key && res.dataset)) {
                 displayError(res.error)
             } else if (res.key && res.dataset) {
+				
                 stg.set({
                         "acbh_dataset_id": res.dataset,
                         "acbh_user_key": res.key,
@@ -67,10 +68,14 @@ function getDatasetInfo(username, password) {
                                 currentWindow: true
                             }, function(tabs) {
                                 chrome.tabs.remove(tabs[0].id)
-                            })
+                            });
+							
                         }
                     }
                 );
+				
+				// upload plugin status after verifying credentials 
+				chrome.extension.getBackgroundPage().acbh__active= true;
             }
         });
 }
