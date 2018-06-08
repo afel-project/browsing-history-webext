@@ -1,0 +1,19 @@
+{
+  "name": "browsing-history-webext",
+  "version": "0.3",
+  "description": "browser extension to create a stream of activities from the browser's history",
+  "main": "acbh.js",
+  "repository": "https://github.com/afel-project/browsing-history-webext.git",
+  "author": "Mathieu d'Aquin <mathieu.daquin.w@gmail.com>",
+  "contributors": [
+  	"Alessandro Adamou <alexdma@apache.org>",
+  	"Ilaria Tiddi"
+  ],
+  "license": "Apache-2.0",
+  "dependencies": {
+  	"bootstrap" : "^4.1.1",
+  	"@fortawesome/fontawesome-free-webfonts" : "^1.0.9",
+  	"jquery" : "^3.3.1",
+  	"popper.js" : "^1.14.3"
+  }
+}

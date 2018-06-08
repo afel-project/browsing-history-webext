@@ -1,4 +1,11 @@
-var myName = typeof browser !== 'undefined' ? browser.runtime.getManifest().name : chrome.runtime.getManifest().name;
+/* Background script that sets some variables 
+ * that must be accessed from anywhere in the
+ * extension code.
+ *
+ * @author: alexdma
+ */
+ 
+var myName = (typeof browser !== 'undefined') ? browser.runtime.getManifest().name : chrome.runtime.getManifest().name;
 var config = {
    base_ns: "http://data.afel-project.org/acbh/",
    catalogue_base_url: "http://data.afel-project.eu/catalogue/",
@@ -21,7 +28,7 @@ function postJsonResource(url, params, callback){
 	  if(req.readyState == 4) {
         callback(req.status, req.responseText);
 	    if(req.status == 404)
-          console.error("404 - is the page "+url+" present in the AFEL catalogue?");
+          console.error("404 - is the page " + url + " present in the AFEL catalogue?");
       }
     };
     req.open("POST", url, true);

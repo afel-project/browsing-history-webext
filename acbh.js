@@ -1,5 +1,5 @@
 /* Main script for the AFEL browsing history WebExtension 
- * for Firefox 48+ and possibly other browsers.
+ * for Firefox 50+ and possibly other browsers.
  * Establishes connection to the AFEL platform and sends 
  * new data about activities
  *
@@ -10,6 +10,7 @@
 //   off button
 //   https
 
+acbh__checkActivity();
 //// FOR DEBUG - uncomment here for faking an existing dataset
 // stg.set({"acbh_dataset_id": "test", "acbh_user_key": "test"}, function (){});
 //// FOR DEBUG - uncomment here and later to force the re-creation of a new dataset
@@ -31,7 +32,21 @@ chrome.history.onVisited.addListener(function(details){
 // Functions
 //================================================================================
 
-
+/**
+ * Performs all the checks that occur at the time the 
+ * extension is (de-)activated.
+ */
+function acbh__checkActivity(){
+	stg.get(["acbh_pref_active"], function(items){
+		if(items.acbh_pref_active) {
+			window.acbh__active = true
+			chrome.browserAction.setIcon({ path:"img/afel_icon16.png" });
+		} else {
+			window.acbh__active = false
+			chrome.browserAction.setIcon({ path:"img/afel_icon-off16.png" });
+		}
+	})
+}
 
 /**
  * Checks if dataset exists with info in storage.
@@ -43,8 +58,7 @@ function acbh__getDatasetInfo(){
     stg.get(["acbh_dataset_id", "acbh_user_key"], function (items){
 	if( !items.acbh_dataset_id || !items.acbh_user_key)
 	    chrome.tabs.create({url: "html/login.html"}, function(){})
-    });		
-	
+    });
 }
 
 function acbh__save(details){
@@ -84,12 +98,11 @@ function acbh__generateJSON(dataset, historyItem){
  * Sends the data to the data platform.
  */
 function acbh__sendJSON(dataset, obj){
-    console.log(obj);
+    // console.log(obj);
     postJsonResource(
     	config.ecapi_url + "bh/?id=" + dataset.acbh_dataset_id + "&key=" + dataset.acbh_user_key , 
     	"data=" + escape(JSON.stringify(obj)) , 
     	function (status, text){
-			// console.log("rdf sent");
     	}
     );
 }

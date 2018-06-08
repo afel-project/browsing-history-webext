@@ -1,6 +1,7 @@
 # Directories #
 /build/
 /bin/
+node_modules/
 target/
  
 # OS Files #

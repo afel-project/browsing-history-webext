@@ -48,7 +48,7 @@ function getDatasetInfo(username, password) {
                         "acbh_ecapi": res.ecapi
                     },
                     function() {
-                        console.log(myName + ' is attempting to close its own login page.');
+                        // console.log(myName + ' is attempting to close its own login page.');
 
                         // Handled differently in Firefox 50.0 and Chrome 54.0
                         var err_msg = myName + 'failed to close its authentication window, you should do it manually now.';

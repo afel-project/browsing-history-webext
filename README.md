@@ -15,18 +15,24 @@ This WebExtension works on any of the following browsers:
 
 _Microsoft Edge_ is expected to be the next to support this standard.
 
+If you want to __build__ the extension from source you will need the [Yarn package manager](https://yarnpkg.com).
+
 ## Installation 
 A version of this extension is available on extension stores for some of the browsers listed above. To ensure you get the latest, development version, you might want to install it as an unpackaged extension after setting your browser to accept developer-mode extensions.
 
-1. Download or git clone into a local directory. 
-2. In Chrome, go to settings, and choose extensions on the right hand menu (View -> Show Extensions in Opera, Add-ons in Firefox)
-3. At the top of the page, click on "Developer mode" if not already enabled. 
-4. Use "Load unpacked extension" to select the directory where the extension has been downloaded.
+1. Download or `git clone` this repository into a local directory.
+2. Import external dependencies. From the command line:
+
+       $ cd browser-history-webext
+       $ yarn install
+3. In your Web browser, choose the menu option for managing extensions (View -> Show Extensions in Opera, Add-ons in Firefox)
+4. At the top of the page, click on "Developer mode" if not already enabled. 
+5. Use "Load unpacked extension" to select the directory where the extension has been downloaded.
 
 Please make sure to read and accept the [Terms and Conditions](http://data.afel-project.eu/catalogue/index.php/terms-browsing/) before downloading and activating this browser extension.
 
 ## Use
-As soon as the extension is enabled, a new tab should appear in your browser showing a login page to the AFEL data platform. Please (register)[http://data.afel-project.eu/catalogue/wp-login.php?action=register] if you don't already have an account. Once logged in, the extension will have obtained all the details needed to updload data about browsing activity on the AFEL Data Platform. A small icon will have also appeared on the right hand side of the browser's address bar, showing that the extension is active. Clicking on this icon will give you a link to the [AFEL User Dashboard](http://data.afel-project.eu/catalogue/index.php/user-dashboard/) where you can monitor your own activity from this and other AFEL extractors.
+As soon as the extension is enabled, a new tab should appear in your browser showing a login page to the AFEL data platform. Please [register](http://data.afel-project.eu/catalogue/wp-login.php?action=register) if you don't already have an account. Once logged in, the extension will have obtained all the details needed to updload data about browsing activity on the AFEL Data Platform. A small icon will have also appeared on the right hand side of the browser's address bar, showing that the extension is active. Clicking on this icon will give you a link to the [AFEL User Dashboard](http://data.afel-project.eu/catalogue/index.php/user-dashboard/) where you can monitor your own activity from this and other AFEL extractors.
 
 ## Workflow
 
@@ -40,11 +46,11 @@ The API to provide dataset ID and user key in the platform is part of the [Data 
 
 ## Getting your own data
 
-A dashboard and mobile application to visualise, explore (and even download) your own data will be available (on the data platform)[http://data.afel-project.eu/catalogue/user-dashboard/].
+A dashboard and mobile application to visualise, explore (and even download) your own data will be available [on the data platform](http://data.afel-project.eu/catalogue/user-dashboard/).
 
 ## Turning off the monitoring
 
-We are adding a button to turn off the monitoring done by the extension. While it is not available, you can either instruct your browser to temporarily disable the extension or use the incognito mode when you don't want your activity to be monitored.
+We are adding a button to turn off the monitoring done by the extension. Alternatively, you can either instruct your browser to temporarily disable the extension or use the incognito mode when you don't want your activity to be monitored.
 
 ## Licence 
 The AFEL Chrome Browsing History Extension us distributed under the [Apache Licence V2](https://www.apache.org/licenses/LICENSE-2.0). Please attribute *[Mathieu d'Aquin](http://mdaquin.net) and [Alessandro Adamou](http://kmi.open.ac.uk/people/member/alessandro-adamou) from [The Open University](http://www.open.ac.uk) through the [AFEL Project](http://afel-project.eu)* when reusing and redistributing this code.
