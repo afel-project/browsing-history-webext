@@ -74,8 +74,9 @@ function getDatasetInfo(username, password) {
                     }
                 );
 				
-				// upload plugin status after verifying credentials 
-				chrome.extension.getBackgroundPage().acbh__active= true;
+				// update plugin status after verifying credentials 
+				chrome.extension.getBackgroundPage().acbh__active = true;
+				chrome.extension.getBackgroundPage().acbh__checkAuth()
             }
         });
 }
