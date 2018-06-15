@@ -13,7 +13,7 @@ You can __run__ this WebExtension on any of the following browsers:
 - Opera version 33 and above
 - Vivaldi
 
-_Microsoft Edge_ is also expected to support this standard, but this extension will only work if and when Microsoft [decides to support](https://docs.microsoft.com/en-us/microsoft-edge/extensions/api-support/extension-api-roadmap) the history API.
+_Microsoft Edge_ is also picking up support for WebExtensions, however this add-on will only work if and when Microsoft [decides to support](https://docs.microsoft.com/en-us/microsoft-edge/extensions/api-support/extension-api-roadmap) the history API.
 
 If you want to __build__ the extension from source, you will need the [Yarn package manager](https://yarnpkg.com) to install external dependencies.
 
