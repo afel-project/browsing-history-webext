@@ -35,7 +35,7 @@ To ensure you get the latest development version, you should be able to install 
        $ yarn install
 3. In your Web browser, choose the menu option for managing extensions (_Window &rarr; extensions_ in Chrome; _View &rarr; Show Extensions_ in Opera; _Tools &rarr; Add-ons_ in Firefox)
 4. Enable _Developer mode_ for extensions (_Debug Add-on_ in Firefox)
-5. Select _Load unpacked extension_ (_Load Temporary Extension_ in Firefox) to select the directory where the extension has been downloaded.
+5. Select _Load unpacked extension_ (_Load Temporary Extension_ in Firefox) to select the directory where the extension has been downloaded. Some browsers may require you to select the `manifest.js` file inside, others will just ask you to point to the directory where it resides.
 
 
 ## Usage
