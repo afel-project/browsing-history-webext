@@ -9,7 +9,7 @@ var myName = (typeof browser !== 'undefined') ? browser.runtime.getManifest().na
 var config = {
    base_ns: "http://data.afel-project.org/acbh/",
    catalogue_base_url: "http://data.afel-project.eu/catalogue/",
-   ecapi_url: "http://data.afel-project.eu/api/"
+   ecapi_url: "https://data.afel-project.eu/api/"
 };
 
 var app_short = 'generic';

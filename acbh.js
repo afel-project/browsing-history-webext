@@ -6,7 +6,7 @@
  * @author: alexdma, mdaquin
  */
 
-acbh__checkActivity();
+if ( acbh__checkActivity() ) {
 
 //// FOR DEBUG - uncomment here for faking an existing dataset
 // stg.set({"acbh_dataset_id": "test", "acbh_user_key": "test"}, function (){});
@@ -15,6 +15,8 @@ acbh__checkActivity();
 acbh__getDatasetInfo();
 //// FOR DEBUG - uncomment here as well to force the re-creation of a new dataset
 //});
+
+}
 
 // Counter for number of times we went to a page without having any dataset info
 var misses = 0;
@@ -46,6 +48,7 @@ function acbh__checkActivity() {
             chrome.browserAction.setBadgeText({ text: '' });
         }
     })
+    return window.acbh__active
 }
 
 /**
@@ -74,23 +77,27 @@ function acbh__checkAuth() {
 }
 
 function acbh__save(details) {
-    // check if dataset info is available
-    stg.get(["acbh_dataset_id", "acbh_user_key"], function(items) {
-        if (items.acbh_dataset_id && items.acbh_user_key) {
-            var tosend = acbh__generateJSON(items, details);
-            acbh__sendJSON(items, tosend);
-            window.acbh__count++;
-        } else { // if the dataset info is missing more than 50 times,
-            // try to redo the registration of the dataset to the AFEL platform
-            if (++misses >= 50) {
-                misses = 0;
-                acbh__getDatasetInfo()
-            }
-        }
-        acbh__checkAuth()
-        chrome.browserAction.setBadgeText({
-            text: abbreviateNumber(window.acbh__count.toString())
-        })
+	stg.get(["acbh_pref_active"], function(status) {
+		if(!status.acbh_pref_active) return;
+	    // check if dataset info is available
+	    stg.get(["acbh_dataset_id", "acbh_user_key"], function(items) {
+	        if (items.acbh_dataset_id && items.acbh_user_key) {
+	            var tosend = acbh__generateJSON(items, details);
+	            acbh__sendJSON(items, tosend);
+	            window.acbh__count++;
+	        } else { 
+	        	// if the dataset info is missing more than 50 times,
+	            // try to redo the registration of the dataset to the AFEL platform
+	            if (++misses >= 50) {
+	                misses = 0;
+	                acbh__getDatasetInfo()
+	            }
+	        }
+	        acbh__checkAuth()
+    		chrome.browserAction.setBadgeText({
+    			text: abbreviateNumber(window.acbh__count.toString())
+    		})
+	    });
     });
 }
 

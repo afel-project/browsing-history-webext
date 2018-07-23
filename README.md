@@ -3,6 +3,8 @@ Contributors: Mathieu d'Aquin (@mdaquin), Alessandro Adamou(@anticitizen79)
 
 The AFEL Browsing History WebExtension is one of the Browsing History Extractors developed in the [AFEL Project](http://afel-project.eu). It is a browser add-on running in the background while you use the browser in the Web, and sends information about your browsing to the [AFEL Data Platform](http://data.afel-project.eu). It will require login onto the AFEL Data Platform, either with an existing account or through registration.
 
+[![Chrome Web Store](https://developer.chrome.com/webstore/images/ChromeWebStore_Badge_v2_206x58.png)](https://chrome.google.com/webstore/detail/afel-activity-monitor/llipmmlocnefdomgmljdfgmlnhaphpoi)[![Firefox add-ons](https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_1.png)](https://addons.mozilla.org/en-GB/firefox/addon/afel-activity-monitor/)
+
 This add-on has been developed as a WebExtension, the preferred format for browser extensions that became a cross-platform standard in 2017.
 
 ## Requirements
@@ -33,6 +35,7 @@ To ensure you get the latest development version, you should be able to install 
 
        $ cd browser-history-webext
        $ yarn install
+   Note that Yarn downloads more content than required by the extension (and included  in the Web store distributions): this is expected.
 3. In your Web browser, choose the menu option for managing extensions (_Window &rarr; extensions_ in Chrome; _View &rarr; Show Extensions_ in Opera; _Tools &rarr; Add-ons_ in Firefox)
 4. Enable _Developer mode_ for extensions (_Debug Add-on_ in Firefox)
 5. Select _Load unpacked extension_ (_Load Temporary Extension_ in Firefox) to select the directory where the extension has been downloaded.
