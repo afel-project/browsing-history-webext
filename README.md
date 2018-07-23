@@ -15,7 +15,7 @@ You can __run__ this WebExtension on any of the following browsers:
 - Opera version 33 and above
 - Vivaldi
 
-_Microsoft Edge_ is also expected to support this standard, but this extension will only work if and when Microsoft [decides to support](https://docs.microsoft.com/en-us/microsoft-edge/extensions/api-support/extension-api-roadmap) the history API.
+_Microsoft Edge_ is also picking up support for WebExtensions, however this add-on will only work if and when Microsoft [decides to support](https://docs.microsoft.com/en-us/microsoft-edge/extensions/api-support/extension-api-roadmap) the history API.
 
 If you want to __build__ the extension from source, you will need the [Yarn package manager](https://yarnpkg.com) to install external dependencies.
 
@@ -38,7 +38,7 @@ To ensure you get the latest development version, you should be able to install 
    Note that Yarn downloads more content than required by the extension (and included  in the Web store distributions): this is expected.
 3. In your Web browser, choose the menu option for managing extensions (_Window &rarr; extensions_ in Chrome; _View &rarr; Show Extensions_ in Opera; _Tools &rarr; Add-ons_ in Firefox)
 4. Enable _Developer mode_ for extensions (_Debug Add-on_ in Firefox)
-5. Select _Load unpacked extension_ (_Load Temporary Extension_ in Firefox) to select the directory where the extension has been downloaded.
+5. Select _Load unpacked extension_ (_Load Temporary Extension_ in Firefox) to select the directory where the extension has been downloaded. Some browsers may require you to select the `manifest.js` file inside, others will just ask you to point to the directory where it resides.
 
 
 ## Usage
